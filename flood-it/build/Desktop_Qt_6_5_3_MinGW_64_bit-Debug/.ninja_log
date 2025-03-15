@@ -1,0 +1,21 @@
+# ninja log v5
+2	794	7633090509968005	flood-it_autogen/timestamp	65360cfc4e88c98f
+795	4215	7633090544989401	CMakeFiles/flood-it.dir/flood-it_autogen/mocs_compilation.cpp.obj	b0274eb211bff1b
+2	794	7633090509968005	flood-it_autogen/mocs_compilation.cpp	65360cfc4e88c98f
+2	794	7633090509968005	C:/Users/azurg/Desktop/project_flood-it/flood-it/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/flood-it_autogen/mocs_compilation.cpp	65360cfc4e88c98f
+2	794	7633090509968005	C:/Users/azurg/Desktop/project_flood-it/flood-it/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/flood-it_autogen/timestamp	65360cfc4e88c98f
+800	4089	7633090543734728	CMakeFiles/flood-it.dir/settingsView.cpp.obj	852fd6e8f67087a4
+805	4863	7633090551425581	CMakeFiles/flood-it.dir/main.cpp.obj	6a39699335f24714
+4864	5166	7633090554288859	flood-it.exe	b3d13b044c1de410
+26	883	7636547489998166	flood-it_autogen/timestamp	65360cfc4e88c98f
+26	883	7636547489998166	flood-it_autogen/mocs_compilation.cpp	65360cfc4e88c98f
+26	883	7636547489998166	C:/Users/azurg/Desktop/project_flood-it/flood-it/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/flood-it_autogen/timestamp	65360cfc4e88c98f
+26	883	7636547489998166	C:/Users/azurg/Desktop/project_flood-it/flood-it/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/flood-it_autogen/mocs_compilation.cpp	65360cfc4e88c98f
+899	4983	7636547531683290	CMakeFiles/flood-it.dir/view/settingsView.cpp.obj	386d0d6a30474837
+895	4987	7636547531683290	CMakeFiles/flood-it.dir/flood-it_autogen/mocs_compilation.cpp.obj	b0274eb211bff1b
+25	176	7636548052735125	flood-it_autogen/timestamp	65360cfc4e88c98f
+25	176	7636548052735125	flood-it_autogen/mocs_compilation.cpp	65360cfc4e88c98f
+25	176	7636548052735125	C:/Users/azurg/Desktop/project_flood-it/flood-it/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/flood-it_autogen/timestamp	65360cfc4e88c98f
+25	176	7636548052735125	C:/Users/azurg/Desktop/project_flood-it/flood-it/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/flood-it_autogen/mocs_compilation.cpp	65360cfc4e88c98f
+185	2013	7636548071177385	CMakeFiles/flood-it.dir/controller/main.cpp.obj	634aa51245c40abe
+2013	2482	7636548075854682	flood-it.exe	7f4302c0c6506b52

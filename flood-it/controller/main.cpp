@@ -1,4 +1,4 @@
-#include "settingsView.h"
+#include "../view/settingsView.h"
 
 #include <QApplication>
 
