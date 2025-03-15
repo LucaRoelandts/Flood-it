@@ -5,22 +5,31 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QSpinBox>
+#include "../model/settings.h"
 
 class SettingsView : public QWidget {
     Q_OBJECT
 
-public:
-    explicit SettingsView(QWidget *parent = nullptr);
-
-
-private:
     QVBoxLayout _layout;  // Direct instance (no pointers)
-    QSpinBox _weightSB;
+    QSpinBox _widthSB;
     QSpinBox _heightSB;
     QSpinBox _nbOfColors;
     QPushButton _start;
 
-    void startTheGame();
+    public:
+        /**
+         * Constructor.
+         * @brief SettingsView constructor.
+         * @param parent the parent Widget.
+         */
+        explicit SettingsView(QWidget *parent = nullptr);
+        Settings getSettings();
+
+    private:
+        std::vector<Colors> getRandomColors(int count);
+        void startTheGame();
+
+
 };
 
 #endif // SETTINGSVIEW_H

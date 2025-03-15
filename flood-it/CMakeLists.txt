@@ -24,6 +24,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         model/settings.h
         model/Colors.h
+        util/Observer.h
+        model/Colors.cpp
+        util/Observable.h
+        util/Observable.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET flood-it APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

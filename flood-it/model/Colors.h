@@ -2,6 +2,7 @@
 #define COLORS_H
 
 #include <string>
+#include <vector>
 #endif // COLORS_H
 
 
@@ -15,3 +16,6 @@ enum class Colors {
     BLACK,
     WHITE
 };
+
+std::vector<Colors> getAllColors();
+
