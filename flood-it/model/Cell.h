@@ -18,6 +18,8 @@ public:
      */
     Cell(size_t& row, size_t& col, Colors color);
 
+    Cell();
+
     /**
      * @brief Obtient la couleur de la cellule.
      * @return La couleur actuelle.

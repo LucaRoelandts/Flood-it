@@ -9,16 +9,11 @@
  * @brief Gère le plateau de jeu et les actions associées.
  */
 class Board {
-    /**
-     * @brief Change la couleur de la zone capturée et l'étend si possible.
-     * @param newColor Nouvelle couleur sélectionnée par le joueur.
-     */
-    void changeColor(Colors newColor);
+public:
     /**
      * @brief Initialise le plateau avec des couleurs aléatoires.
      */
     void initialize();
-public:
     /**
      * @brief Constructeur du plateau de jeu.
      * @param rows Nombre de lignes.
@@ -52,6 +47,12 @@ public:
      */
     bool isCompleted() const { return _remainingCells == 0; }
 
+    /**
+     * @brief Change la couleur de la zone capturée et l'étend si possible.
+     * @param newColor Nouvelle couleur sélectionnée par le joueur.
+     */
+    void changeColor(size_t& row ,size_t& col,Colors newColor);
+
 private:
     size_t _rows, _cols; ///< Dimensions du plateau.
     int _numColors; ///< Nombre de couleurs possibles.
@@ -66,7 +67,7 @@ private:
      * @param targetColor Couleur cible à capturer.
      * @param newColor Nouvelle couleur appliquée.
      */
-    void captureZone(size_t& row, size_t& col, Colors targetColor, Colors newColor);
+    void captureZone(size_t& row, size_t& col, Colors newColor);
 };
 
 #endif // BOARD_H

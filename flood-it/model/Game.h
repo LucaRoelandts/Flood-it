@@ -2,7 +2,6 @@
 #define GAME_H
 
 #include "Board.h"
-#include <memory>
 #include "../util/Observable.h"
 #include "settings.h"
 /**
@@ -17,7 +16,7 @@ public:
      * @param cols Nombre de colonnes du plateau.
      * @param numColors Nombre total de couleurs disponibles.
      */
-    Game(size_t rows, size_t cols, int numColors);
+    Game(Settings &setting);
 
     /**
      * @brief Démarre une nouvelle partie en réinitialisant le plateau.
@@ -28,7 +27,7 @@ public:
      * @brief Sélectionne une couleur et met à jour la zone capturée.
      * @param color La couleur sélectionnée par le joueur.
      */
-    void selectColor(int color);
+    void selectColor(Colors& color);
 
     /**
      * @brief Vérifie si la partie est terminée.
@@ -41,11 +40,11 @@ public:
      * @return Le nombre total de coups joués.
      */
     int getMoveCount() const;
-
 private:
-    Board board; ///< Plateau de jeu.
-    int moveCount;///< Nombre de tours joués.
-    Settings settings;
+    Board _board; ///< Plateau de jeu.
+    int _moveCount;///< Nombre de tours joués.
+    const Settings _settings;
+    Colors _selectedColor;
 };
 
 #endif // GAME_H

@@ -1,5 +1,4 @@
 #include "Board.h"
-#include <algorithm>
 #include "../util/Random.h"
 
 size_t Board::getNCols() const{
@@ -20,21 +19,22 @@ Board::Board(size_t rows,size_t cols,int numColors,std::vector<Colors> selectedC
 
 }
 
-void Board::captureZone(size_t& row, size_t& col, Colors targetColor, Colors newColor){
+void Board::captureZone(size_t& row, size_t& col, Colors newColor){
     //todo
 }
 
 Colors Board::getCellColor(size_t row, size_t col) const{
     return _grid.at(row).at(col).getColor();
 }
-void Board::changeColor(Colors newColor){
-    //todo
+void Board::changeColor(size_t& startRow,size_t& startCol,Colors newColor){
+    captureZone(startRow,startCol,newColor);
 }
 void Board::initialize(){
-
-    for (int i = 0; i < _grid.size(); ++i) {
-        for (int j = 0; j < _grid.at(i).size(); ++j) {
-            _grid.at(i).at(j).setColor(_colors.at(Random::randInt(0,_colors.size()-1)));
+    if(_colors.empty()){
+        for (int i = 0; i < _grid.size(); ++i) {
+            for (int j = 0; j < _grid.at(i).size(); ++j) {
+                _grid.at(i).at(j).setColor(_colors.at(Random::randInt(0,_colors.size()-1)));
+            }
         }
     }
 }

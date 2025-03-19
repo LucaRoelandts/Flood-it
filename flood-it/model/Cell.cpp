@@ -6,6 +6,14 @@ Cell::Cell(size_t& r,size_t& col,Colors color):
     _color(color)
 {}
 
+Cell::Cell():
+    _row(0),
+    _col(0),
+    _color()
+{
+
+}
+
 Colors Cell::getColor() const {
     return _color;
 }

@@ -1,21 +1,25 @@
 #include "settingsview.h"
 #include <QDebug>
-#include <iostream>
 #include <QApplication>
-#include <random>
 #include "../util/Random.h"
 
 SettingsView::SettingsView(QWidget *parent)
     : QWidget(parent),
     _layout(this),
+    _widthLabel("Largeur :", this),
     _widthSB(this),
+    _heightLabel("Hauteur :", this),
     _heightSB(this),
+    _nbOfColorsLabel("Nombre de couleurs :", this),
     _nbOfColors(this),
     _start(this)
 {
     setFixedSize(400,300);
+    _layout.addWidget(&_widthLabel);
     _layout.addWidget(&_widthSB);
+    _layout.addWidget(&_heightLabel);
     _layout.addWidget(&_heightSB);
+    _layout.addWidget(&_nbOfColorsLabel);
     _layout.addWidget(&_nbOfColors);
     _layout.addWidget(&_start);
 

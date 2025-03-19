@@ -3,16 +3,20 @@
 
 #include <QWidget>
 #include <QPushButton>
-#include <QVBoxLayout>
 #include <QSpinBox>
+#include <QFormLayout>
+#include <QLabel>
 #include "../model/settings.h"
 
 class SettingsView : public QWidget {
     Q_OBJECT
 
-    QVBoxLayout _layout;
+    QFormLayout _layout;
+    QLabel _widthLabel;
     QSpinBox _widthSB;
+    QLabel _heightLabel;
     QSpinBox _heightSB;
+    QLabel _nbOfColorsLabel;
     QSpinBox _nbOfColors;
     QPushButton _start;
 
