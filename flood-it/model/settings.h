@@ -5,7 +5,7 @@
 #include "Colors.h"
 struct Settings
 {
-    int height {20};
+    int height {10};
     int width {10};
     int nbOfColors;
     std::vector<Colors> colors;

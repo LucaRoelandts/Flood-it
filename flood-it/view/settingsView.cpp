@@ -3,6 +3,7 @@
 #include <iostream>
 #include <QApplication>
 #include <random>
+#include "../util/Random.h"
 
 SettingsView::SettingsView(QWidget *parent)
     : QWidget(parent),
@@ -42,12 +43,9 @@ std::vector<Colors> SettingsView::getRandomColors(int count) {
     std::vector<Colors> randomColors;
     std::vector<Colors> allColors = {getAllColors()};
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dist(0, allColors.size() - 1);
 
     for (int i = 0; i < count; ++i) {
-        randomColors.push_back(allColors.at(dist(gen)));
+        randomColors.push_back(allColors.at(Random::randInt(0, allColors.size())));
     }
 
     return randomColors;

@@ -10,7 +10,7 @@
 class SettingsView : public QWidget {
     Q_OBJECT
 
-    QVBoxLayout _layout;  // Direct instance (no pointers)
+    QVBoxLayout _layout;
     QSpinBox _widthSB;
     QSpinBox _heightSB;
     QSpinBox _nbOfColors;
