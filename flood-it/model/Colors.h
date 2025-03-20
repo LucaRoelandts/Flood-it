@@ -11,7 +11,6 @@ enum class Colors {
     YELLOW,
     MAGENTA,
     CYAN,
-    WHITE
 };
 
 std::vector<Colors> getAllColors();
@@ -31,6 +30,8 @@ inline QColor toQColor(Colors color) {
     default: return QColor(Qt::black);
     }
 }
+
+
 #endif // COLORS_H
 
 

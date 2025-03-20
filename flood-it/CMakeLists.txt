@@ -37,6 +37,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         model/Game.cpp
         view/ColorsChoisesView.h
         view/ColorsChoisesView.cpp
+        view/mainwindow.h view/mainwindow.cpp
+        view/boardview.h view/boardview.cpp
+        view/floot_itview.h view/floot_itview.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET flood-it APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

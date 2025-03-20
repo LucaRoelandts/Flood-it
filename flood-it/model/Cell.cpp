@@ -25,5 +25,5 @@ size_t Cell::getRow() const{
     return _row;
 }
 void Cell::setColor(Colors newColor){
-    this->_color=newColor;
+    _color=newColor;
 }

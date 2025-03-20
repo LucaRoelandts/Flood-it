@@ -40,6 +40,11 @@ public:
      * @return Le nombre total de coups joués.
      */
     int getMoveCount() const;
+    ~Game() override;
+
+    Colors getColor(size_t& row,size_t& col);
+    size_t getCols();
+    size_t getRows();
 private:
     Board _board; ///< Plateau de jeu.
     int _moveCount;///< Nombre de tours joués.

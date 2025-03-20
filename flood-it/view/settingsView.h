@@ -2,10 +2,10 @@
 #define SETTINGSVIEW_H
 
 #include <QWidget>
-#include <QPushButton>
 #include <QSpinBox>
 #include <QFormLayout>
 #include <QLabel>
+#include <QComboBox>
 #include "../model/settings.h"
 
 class SettingsView : public QWidget {
@@ -17,8 +17,7 @@ class SettingsView : public QWidget {
     QLabel _heightLabel;
     QSpinBox _heightSB;
     QLabel _nbOfColorsLabel;
-    QSpinBox _nbOfColors;
-    QPushButton _start;
+    QComboBox _nbOfColors;
 
     public:
         /**
@@ -29,9 +28,10 @@ class SettingsView : public QWidget {
         explicit SettingsView(QWidget *parent = nullptr);
         Settings getSettings();
 
+        ~SettingsView() override;
+
     private:
         std::vector<Colors> getRandomColors(int count);
-        void startTheGame();
 
 
 };

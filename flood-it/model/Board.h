@@ -2,7 +2,7 @@
 #define BOARD_H
 
 #include <vector>
-#include "Cell.h"
+#include "Colors.h"
 
 /**
  * @class Board
@@ -53,10 +53,12 @@ public:
      */
     void changeColor(size_t& row ,size_t& col,Colors newColor);
 
+    Colors getColors(size_t& row,size_t& col);
+
 private:
     size_t _rows, _cols; ///< Dimensions du plateau.
     int _numColors; ///< Nombre de couleurs possibles.
-    std::vector<std::vector<Cell>> _grid; ///< Matrice représentant le plateau.
+    std::vector<std::vector<Colors>> _grid; ///< Matrice représentant le plateau.
     std::vector<std::vector<bool>> _captured; ///< Indique si une cellule est capturée.
     unsigned _remainingCells;///< Nombre de cellules restant à capturer.
     std::vector<Colors> _colors;

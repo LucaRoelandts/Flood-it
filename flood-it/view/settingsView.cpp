@@ -11,29 +11,24 @@ SettingsView::SettingsView(QWidget *parent)
     _heightLabel("Hauteur :", this),
     _heightSB(this),
     _nbOfColorsLabel("Nombre de couleurs :", this),
-    _nbOfColors(this),
-    _start(this)
+    _nbOfColors(this)
 {
-    setFixedSize(400,300);
+    _nbOfColors.addItems({"2","3", "4", "5", "6"}); // Add predefined values
+    _nbOfColors.setCurrentIndex(2);
+
     _layout.addWidget(&_widthLabel);
     _layout.addWidget(&_widthSB);
     _layout.addWidget(&_heightLabel);
     _layout.addWidget(&_heightSB);
     _layout.addWidget(&_nbOfColorsLabel);
     _layout.addWidget(&_nbOfColors);
-    _layout.addWidget(&_start);
 
-    QObject::connect(&_start,&QPushButton::clicked,this,&SettingsView::startTheGame);
-    QString title("start");
-    _start.setText(title);
-}
-void SettingsView::startTheGame(){
 
-    QApplication::quit();
+
 }
 
 Settings SettingsView::getSettings(){
-    int nbOfColors=_nbOfColors.value();
+    int nbOfColors=_nbOfColors.currentText().toInt();
 
     return {
         _heightSB.value(),
@@ -49,8 +44,13 @@ std::vector<Colors> SettingsView::getRandomColors(int count) {
 
 
     for (int i = 0; i < count; ++i) {
-        randomColors.push_back(allColors.at(Random::randInt(0, allColors.size())));
+        int index=Random::randInt(0, allColors.size());
+        randomColors.push_back(allColors.at(index));
+        allColors.erase(allColors.begin()+index);
     }
 
     return randomColors;
+}
+SettingsView::~SettingsView(){
+
 }

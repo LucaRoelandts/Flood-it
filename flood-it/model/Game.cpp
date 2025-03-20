@@ -20,3 +20,16 @@ void Game::startNewGame(){
 void Game::selectColor(Colors& color){
     _selectedColor=color;
 }
+Colors Game::getColor(size_t& row,size_t& col){
+    return _board.getColors(row,col);
+}
+
+size_t Game::getRows(){
+    return _board.getNRows();
+}
+size_t Game::getCols(){
+    return _board.getNCols();
+}
+Game::~Game(){
+
+}
