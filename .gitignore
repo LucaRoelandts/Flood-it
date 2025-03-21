@@ -60,5 +60,5 @@ CMakeCache.txt
 *.htm
 *.html
 
-flood-it/doc*
+flood-it/doc/*
 !flood-it/doc/.gitignore
