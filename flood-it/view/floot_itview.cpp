@@ -13,14 +13,20 @@ Floot_ItView::Floot_ItView(Settings& s,Game& game,QWidget *parent):
     _boardview=new BoardView(_game,this);
 
 
-
+    _colorChoisesView->setObjectName("ColorChoices");
     _layout.addWidget(_colorChoisesView);
     _layout.addWidget(_boardview);
-    _layout.setSpacing(0);
+    _layout.setSpacing(1);
     setLayout(&_layout);
 }
 
 Floot_ItView::~Floot_ItView(){
     delete _colorChoisesView;
     delete _boardview;
+}
+void Floot_ItView::refresh(){
+    _boardview->printCells();
+}
+std::vector<QPushButton *> Floot_ItView::getColorsButtons(){
+    return _colorChoisesView->getButtons();
 }

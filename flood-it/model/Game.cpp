@@ -18,18 +18,23 @@ void Game::startNewGame(){
     _board.initialize();
 }
 void Game::selectColor(Colors& color){
-    _selectedColor=color;
+    captureZone(color);
+    notifyObservers();
 }
-Colors Game::getColor(size_t& row,size_t& col){
+Colors Game::getColor(int& row,int& col){
     return _board.getColors(row,col);
 }
 
-size_t Game::getRows(){
+int Game::getRows(){
     return _board.getNRows();
 }
-size_t Game::getCols(){
+int Game::getCols(){
     return _board.getNCols();
 }
 Game::~Game(){
 
+}
+void Game::captureZone(Colors& color){
+    _board.changeColor(color);
+    _moveCount++;
 }

@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include <QMessageBox>
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     _settingsView{nullptr},
@@ -7,7 +7,8 @@ MainWindow::MainWindow(QWidget *parent):
     _rootWidget(this),
     _rootLayout(&_rootWidget),
     _startGameBtn{nullptr},
-    _game{nullptr}
+    _game{nullptr},
+    _currentColor()
 {
     setCentralWidget(&_rootWidget);
     _rootWidget.setLayout(&_rootLayout);
@@ -32,17 +33,32 @@ void MainWindow::init(){
     _rootLayout.addWidget(_startGameBtn);
 }
 void MainWindow::update(){
-    //todo
+    _flootitView->refresh();
 }
 void MainWindow::startBtn(){
     delSettingsView();
     _game=new Game(_currentSettings);
-
+    _game->registerObserver(this);
     _flootitView=new Floot_ItView(_currentSettings,*_game,this);
-
+    initColorButtons();
     _rootLayout.addWidget(_flootitView);
-
+    int x =4,y=5;
+    _currentColor=_game->getColor(x,y);
 }
+void MainWindow::selectColor(Colors& color){
+    _game->selectColor(color);
+}
+void MainWindow::initColorButtons(){
+    std::vector<QPushButton *> btns=_flootitView->getColorsButtons();
+    for(auto btn:btns){
+        QObject::connect(btn, &QPushButton::clicked,this,[this,btn]{
+             _currentColor=toColors(btn->property("associatedColor").value<QColor>());
+            if(_game!=nullptr)
+                _game->selectColor(_currentColor);
+        });
+    }
+}
+
 void MainWindow::delSettingsView(){
     if(_settingsView!=nullptr){
         _currentSettings=_settingsView->getSettings();

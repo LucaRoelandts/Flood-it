@@ -15,6 +15,7 @@ class MainWindow : public QMainWindow,public Observer
 
     Game* _game;
     Settings _currentSettings;
+    Colors _currentColor;
 
     QWidget _rootWidget;
     QGridLayout _rootLayout;
@@ -30,6 +31,8 @@ private:
     void startBtn();
     void delSettingsView();
     void initGame();
+    void selectColor(Colors& color);
+    void initColorButtons();
 };
 
 #endif // MAINWINDOW_H

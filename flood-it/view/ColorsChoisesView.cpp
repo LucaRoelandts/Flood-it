@@ -7,9 +7,14 @@ ColorsChoisesView::ColorsChoisesView(const std::vector<Colors>& colors, QWidget 
 {
     for (int var = 0; var < colors.size(); ++var) {
         QPushButton *btn=new QPushButton(this);
+        QColor qcolor=toQColor(colors.at(var));
         btn->setStyleSheet(QString("border-radius: 25px; background-color: %1;")
-                               .arg(toQColor(colors.at(var)).name()));
+                               .arg(qcolor.name()));
         btn->setFixedSize(40,40);
+        btn->setProperty("associatedColor",qcolor);
+
+
+
         _buttons.push_back(btn);
         if(var<colors.size()/2)
             _layout.addWidget(btn,0,var);
@@ -22,4 +27,7 @@ ColorsChoisesView::ColorsChoisesView(const std::vector<Colors>& colors, QWidget 
 ColorsChoisesView::ColorsChoisesView(QWidget *parent)
 {
 
+}
+std::vector<QPushButton *> ColorsChoisesView::getButtons(){
+    return _buttons;
 }

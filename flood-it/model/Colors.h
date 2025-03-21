@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <QColor>
+
 enum class Colors {
     BLUE,
     GREEN,
@@ -30,7 +31,17 @@ inline QColor toQColor(Colors color) {
     default: return QColor(Qt::black);
     }
 }
+inline Colors toColors(QColor qcolor){
+    if (qcolor == QColor(Qt::red)) return Colors::RED;
+    if (qcolor == QColor(Qt::green)) return Colors::GREEN;
+    if (qcolor == QColor(Qt::blue)) return Colors::BLUE;
+    if (qcolor == QColor(Qt::yellow)) return Colors::YELLOW;
+    if (qcolor == QColor(Qt::cyan)) return Colors::CYAN;
+    if (qcolor == QColor(Qt::magenta)) return Colors::MAGENTA;
 
+    // Par défaut, retourne une couleur par défaut (optionnel selon vos besoins)
+    throw std::invalid_argument("Unknown QColor provided!");
+}
 
 #endif // COLORS_H
 

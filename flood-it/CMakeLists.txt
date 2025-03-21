@@ -28,10 +28,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         model/Colors.cpp
         util/Observable.h
         util/Observable.cpp
-        model/Cell.h
+
         model/Board.h
         model/Game.h
-        model/Cell.cpp
+
         model/Board.cpp
         util/Random.h
         model/Game.cpp

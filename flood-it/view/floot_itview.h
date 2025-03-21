@@ -19,6 +19,9 @@ public:
     explicit Floot_ItView(Settings& s,Game& game,QWidget *parent=nullptr);
     ~Floot_ItView() override;
 
+    void refresh();
+    std::vector<QPushButton *> getColorsButtons();
+
 };
 
 #endif // FLOOT_ITVIEW_H

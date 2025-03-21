@@ -15,9 +15,12 @@ public:
      */
     explicit ColorsChoisesView(const std::vector<Colors>& colors, QWidget *parent = nullptr);
     ColorsChoisesView(QWidget *parent=nullptr);
+     std::vector<QPushButton *> getButtons();
 private:
     QGridLayout _layout;
     std::vector<QPushButton *> _buttons;
+
+
 
 };
 

@@ -42,14 +42,14 @@ public:
     int getMoveCount() const;
     ~Game() override;
 
-    Colors getColor(size_t& row,size_t& col);
-    size_t getCols();
-    size_t getRows();
+    Colors getColor(int& row, int& col);
+    int getCols();
+    int getRows();
 private:
     Board _board; ///< Plateau de jeu.
-    int _moveCount;///< Nombre de tours joués.
+    int _moveCount; ///< Nombre de tours joués.
     const Settings _settings;
-    Colors _selectedColor;
+    void captureZone(Colors& color);
 };
 
 #endif // GAME_H

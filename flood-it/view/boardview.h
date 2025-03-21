@@ -29,8 +29,8 @@ private:
     QGridLayout _gridLayout; ///< Grid layout for the board
     std::vector<std::vector<QLabel*>> _cells;///< Matrix of labels representing the cells
     Game& _game;
-    size_t _rows;
-    size_t _cols;
+    int _rows;
+    int _cols;
 
 
 

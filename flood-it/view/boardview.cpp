@@ -17,8 +17,16 @@ BoardView::BoardView(Game& game, QWidget *parent):
 }
 
 void BoardView::printCells(){
-    for (size_t row = 0; row < _rows; ++row) {
-        for (size_t col = 0; col < _cols; ++col) {
+    if(!_gridLayout.isEmpty()){
+        for (int row = 0; row < _rows; ++row) {
+            for (int col = 0; col < _cols; ++col){
+                _gridLayout.removeItem(_gridLayout.itemAtPosition(row,col));
+            }
+
+        }
+    }
+    for (int row = 0; row < _rows; ++row) {
+        for (int col = 0; col < _cols; ++col) {
             QLabel *cellLabel = new QLabel(this);
             cellLabel->setFixedSize(40, 40);
             cellLabel->setStyleSheet(QString("background-color: %1; border: 1px solid black;")
@@ -32,4 +40,5 @@ void BoardView::printCells(){
         }
     }
 }
+
 
