@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include <QMessageBox>
+#include <fstream>
+#include <ctime>
+#include <filesystem>
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     _settingsView{nullptr},
@@ -34,6 +37,14 @@ void MainWindow::init(){
 }
 void MainWindow::update(){
     _flootitView->refresh();
+    if(_game->isGameOver()){
+        _game->unregisterObserver(this);
+        std::string str=std::to_string(_game->getMoveCount());
+        QString s(QString::fromStdString(str));
+        QMessageBox::information(nullptr,"Score",s);
+        saveScore(_game->getMoveCount());
+        QApplication::quit();
+    }
 }
 void MainWindow::startBtn(){
     delSettingsView();
@@ -71,5 +82,34 @@ void MainWindow::delSettingsView(){
             delete _startGameBtn;
             _startGameBtn=nullptr;
         }
+    }
+}
+void MainWindow::saveScore(int score){
+    std::string folder = "scores";
+    std::string filePath = folder + "/scores.txt";
+
+    // Ensure the directory exists
+    if (!std::filesystem::exists(folder)) {
+        std::filesystem::create_directory(folder);
+    }
+
+    // Ensure the file exists
+    if (!std::filesystem::exists(filePath)) {
+        std::ofstream createFile(filePath);  // Create an empty file
+        createFile.close();
+    }
+
+    // Open file in append mode
+    std::ofstream outFile(filePath, std::ios::app);
+
+    if (outFile.is_open()) {
+        // Get current time
+        std::time_t now = std::time(nullptr);
+        char timeStr[100];
+        std::strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
+
+        // Write score to file
+        outFile << timeStr << " - " << score << std::endl;
+        outFile.close();
     }
 }

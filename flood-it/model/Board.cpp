@@ -12,8 +12,8 @@ int Board::getNRows ()const{
 Board::Board(int rows, int cols, int numColors, std::vector<Colors> selectedColors):
     _rows(rows),
     _cols(cols),
-    _remainingCells(rows*cols),
     _grid(rows, std::vector<Colors>(cols)),
+    _captured(rows,std::vector<bool>(cols,false)),
     _colors{selectedColors}
 {
     initialize();
@@ -30,8 +30,9 @@ void Board::captureZone(int row, int col, Colors targetColor, Colors newColor) {
     }
 
     _grid[row][col] = newColor; // Changer la couleur
-    _remainingCells--;
-
+    if(!_captured[row][col]){
+        _captured[row][col]=true;
+    }
     // Appel récursif pour capturer les voisins (haut, bas, gauche, droite)
     captureZone(row - 1, col, targetColor, newColor); // Haut
     captureZone(row + 1, col, targetColor, newColor); // Bas
@@ -58,3 +59,14 @@ void Board::initialize(){
 Colors Board::getColors(int& row, int& col){
     return _grid.at(row).at(col);
 }
+bool Board::isCompleted()const {
+    for (int i = _rows-1; i > 0; --i) {
+        for (int j = _cols-1; j > 0; --j) {
+            if(_captured[i][j]==false){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+

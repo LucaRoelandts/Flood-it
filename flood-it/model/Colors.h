@@ -1,20 +1,28 @@
 #ifndef COLORS_H
 #define COLORS_H
 
-
 #include <vector>
 #include <QColor>
 
+/**
+ * @enum Colors
+ * @brief Représente une palette de couleurs pour le jeu.
+ */
 enum class Colors {
-    BLUE,
-    GREEN,
-    RED,
-    YELLOW,
-    MAGENTA,
-    CYAN,
+    BLUE,    ///< Couleur bleue.
+    GREEN,   ///< Couleur verte.
+    RED,     ///< Couleur rouge.
+    YELLOW,  ///< Couleur jaune.
+    MAGENTA, ///< Couleur magenta.
+    CYAN     ///< Couleur cyan.
 };
 
+/**
+ * @brief Retourne toutes les couleurs disponibles dans l'énumération Colors.
+ * @return Un vecteur contenant toutes les valeurs de Colors.
+ */
 std::vector<Colors> getAllColors();
+
 /**
  * @brief Convertit une couleur `Colors` en `QColor` utilisable par Qt.
  * @param color Couleur à convertir.
@@ -28,10 +36,17 @@ inline QColor toQColor(Colors color) {
     case Colors::YELLOW: return QColor(Qt::yellow);
     case Colors::CYAN: return QColor(Qt::cyan);
     case Colors::MAGENTA: return QColor(Qt::magenta);
-    default: return QColor(Qt::black);
+    default: return QColor(Qt::black); ///< Défaut: Noir.
     }
 }
-inline Colors toColors(QColor qcolor){
+
+/**
+ * @brief Convertit une couleur `QColor` en `Colors`.
+ * @param qcolor Couleur Qt à convertir.
+ * @return La valeur correspondante dans l'énumération Colors.
+ * @throws std::invalid_argument Si la couleur ne correspond pas à une couleur connue.
+ */
+inline Colors toColors(QColor qcolor) {
     if (qcolor == QColor(Qt::red)) return Colors::RED;
     if (qcolor == QColor(Qt::green)) return Colors::GREEN;
     if (qcolor == QColor(Qt::blue)) return Colors::BLUE;
@@ -39,12 +54,8 @@ inline Colors toColors(QColor qcolor){
     if (qcolor == QColor(Qt::cyan)) return Colors::CYAN;
     if (qcolor == QColor(Qt::magenta)) return Colors::MAGENTA;
 
-    // Par défaut, retourne une couleur par défaut (optionnel selon vos besoins)
+    // Par défaut, lève une exception pour une couleur inconnue.
     throw std::invalid_argument("Unknown QColor provided!");
 }
 
 #endif // COLORS_H
-
-
-
-

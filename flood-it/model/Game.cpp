@@ -2,7 +2,7 @@
 Game::Game(Settings &s):
     _settings(s),
     _board(s.height,s.width,s.nbOfColors,s.colors),
-    _moveCount(s.height*s.width)
+    _moveCount(0)
 {
 
 }
